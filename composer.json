@@ -1,0 +1,50 @@
+{
+    "name": "auroro/result",
+    "description": "Errors as values: a Result type with Ok and Err variants",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.3"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3",
+        "pestphp/pest": "^4",
+        "pestphp/pest-plugin-type-coverage": "^4",
+        "phpstan/phpstan": "^2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Auroro\\Result\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Auroro\\Result\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "test:coverage": "XDEBUG_MODE=coverage pest --coverage --min=100",
+        "test:types": "pest --type-coverage --min=100",
+        "analyse": "phpstan analyse",
+        "cs": "php-cs-fixer fix --dry-run --diff",
+        "cs:fix": "php-cs-fixer fix"
+    },
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        },
+        "split": {
+            "target": "next-press/result"
+        }
+    }
+}
